@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interactive Demo — App 1</title>
+<style>
+  body{font-family:Inter,system-ui,Arial;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:linear-gradient(135deg,#CDB4DB,#B8F2E6);}
+  .card{background:#fff;padding:26px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.08);width:360px;text-align:center}
+  button{padding:10px 14px;border-radius:10px;border:0;background:#6b5b95;color:white;font-weight:700;cursor:pointer}
+  .box{margin-top:18px;padding:12px;border-radius:10px;background:#f6f6f8}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Micro-interaction Demo</h2>
+    <p>Click the button to see the animated state.</p>
+    <button id="btn">Click me</button>
+    <div class="box" id="box">Idle</div>
+  </div>
+
+<script>
+const btn=document.getElementById('btn'), box=document.getElementById('box');
+btn.addEventListener('click',()=>{
+  box.textContent='Animating…';
+  box.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:600,easing:'ease-out'});
+  setTimeout(()=>box.textContent='Done — micro-interaction complete',700);
+});
+</script>
+</body>
+</html>
